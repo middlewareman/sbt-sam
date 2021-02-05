@@ -1,6 +1,3 @@
-// https://github.com/sbt/sbt-scalariform
-addSbtPlugin("org.scalariform" % "sbt-scalariform" % "1.8.3")
-
 // https://github.com/sbt/sbt-header
 addSbtPlugin("de.heikoseeberger" % "sbt-header" % "5.6.0")
 

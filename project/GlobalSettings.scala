@@ -1,15 +1,13 @@
 import sbt._
 import sbt.Keys.{publishArtifact, _}
 
-import scalariform.formatter.preferences._
-import com.typesafe.sbt.SbtScalariform
 import de.heikoseeberger.sbtheader.HeaderPlugin
 import LibraryDependencies._
 
 object GlobalSettings extends AutoPlugin {
   override def trigger = allRequirements
 
-  override def requires = plugins.JvmPlugin && SbtScalariform && HeaderPlugin
+  override def requires = plugins.JvmPlugin && HeaderPlugin
 
   override def globalSettings = Seq(
     scalaVersion := "2.12.13",
@@ -22,17 +20,7 @@ object GlobalSettings extends AutoPlugin {
       Developer("kkessels", "Kevin Kessels", "", new java.net.URL("https://github.com/kkessels")),
       Developer("dnvriend", "Dennis Vriend", "", new java.net.URL("https://github.com/dnvriend"))
     )
-  ) ++ headerSettings ++ scalariFormSettings ++ resolverSettings ++ compilerSettings ++ publishSourcesAndDocsSettings
-
-  lazy val scalariFormSettings = Seq(
-    SbtScalariform.autoImport.scalariformPreferences := {
-      SbtScalariform.autoImport.scalariformPreferences.value
-        .setPreference(AlignSingleLineCaseStatements, true)
-        .setPreference(AlignSingleLineCaseStatements.MaxArrowIndent, 100)
-        .setPreference(DoubleIndentConstructorArguments, true)
-        .setPreference(DanglingCloseParenthesis, Preserve)
-    }
-  )
+  ) ++ headerSettings ++ resolverSettings ++ compilerSettings ++ publishSourcesAndDocsSettings
 
   lazy val headerSettings = Seq(
     organizationName := "Dennis Vriend",
