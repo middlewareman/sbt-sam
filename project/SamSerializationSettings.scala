@@ -8,7 +8,7 @@ object SamSerializationSettings extends AutoPlugin {
   override def requires = plugins.JvmPlugin
 
   override def projectSettings = GlobalSettings.commonSettings ++ Seq(
-    crossScalaVersions := Seq("2.11.12", "2.12.7"),
+    crossScalaVersions := Seq("2.11.12", "2.12.13"),
     libraryDependencies += libScalajHttp,
     libraryDependencies += libGuava,
     libraryDependencies += LibraryDependencies.libSecurityBouncyCastle % Provided,
